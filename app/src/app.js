@@ -5,9 +5,7 @@ const state = {
   won: false
 };
 
-export {
-  init
-};
+export default init;
 
 function getRandom(max) {
   return Math.floor(Math.random() * max);
