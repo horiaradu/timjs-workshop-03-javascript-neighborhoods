@@ -9,6 +9,7 @@ let gulp = require('gulp'),
 
 const BASE_PATH = './app';
 
+/*
 // process JS files and return the stream
 gulp.task('jsSrc', ['clean'], () => {
   // return the stream
@@ -29,6 +30,7 @@ gulp.task('jsSrc', ['clean'], () => {
     // output stream, containing
     .pipe(gulp.dest(`${BASE_PATH}/dist`));
 });
+*/
 
 // process JS vendor files
 gulp.task('jsVendor', ['clean'], () => {
@@ -43,7 +45,7 @@ gulp.task('jsVendor', ['clean'], () => {
 
 // create a task that ensures the `js` task is complete
 // before reloading browsers
-gulp.task('jsWatch', ['jsVendor', 'jsSrc'], () => {
+gulp.task('jsWatch', ['jsVendor', /* 'jsSrc' */], () => {
   return browserSync.reload();
 });
 
@@ -53,15 +55,15 @@ gulp.task('clean', () => {
 
 // use default task to compile JS files
 // then launch Browsersync and watch files
-gulp.task('default', ['jsVendor', 'jsSrc'], () => {
+gulp.task('default', ['jsVendor',/* 'jsSrc' */], () => {
 
   // Serve files from the root of our app
   browserSync.init({
     server: {
       baseDir: BASE_PATH,
-      //routes: {
-      //    '/node_modules': 'node_modules'
-      //}
+      routes: {
+        '/node_modules': 'node_modules'
+      }
     }
   });
 

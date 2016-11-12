@@ -15,5 +15,9 @@
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
     "gulp-sourcemaps": "^1.6.0"
+  },
+  "dependencies": {
+    "systemjs": "^0.19.41",
+    "systemjs-plugin-babel": "0.0.17"
   }
 }
