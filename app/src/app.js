@@ -1,11 +1,12 @@
+import $ from '../vendor/jquery-2.1.4.js';
+export default init;
+
 const state = {
   word: null,
   inputWord: null,
   tries: new Set(),
   won: false
 };
-
-export default init;
 
 function getRandom(max) {
   return Math.floor(Math.random() * max);

@@ -10,38 +10,40 @@ let gulp = require('gulp'),
 const BASE_PATH = './app';
 
 /*
-// process JS files and return the stream
-gulp.task('jsSrc', ['clean'], () => {
-  // return the stream
-  return gulp
-  // read source files
-    .src([
-      `${BASE_PATH}/src/*.js`,
-      `${BASE_PATH}/src/app.js`
-    ])
-    // start sourcemaps
-    .pipe(sourcemaps.init())
-    // transpile using Babel to ES5
-    .pipe(babel({presets: ['es2015']}).on('error', handleError))
-    // concatenate all source files into a single file
-    .pipe(concat('bundle.js'))
-    // output sourcemaps
-    .pipe(sourcemaps.write('maps/'))
-    // output stream, containing
-    .pipe(gulp.dest(`${BASE_PATH}/dist`));
-});
-*/
+ // process JS files and return the stream
+ gulp.task('jsSrc', ['clean'], () => {
+ // return the stream
+ return gulp
+ // read source files
+ .src([
+ `${BASE_PATH}/src/*.js`,
+ `${BASE_PATH}/src/app.js`
+ ])
+ // start sourcemaps
+ .pipe(sourcemaps.init())
+ // transpile using Babel to ES5
+ .pipe(babel({presets: ['es2015']}).on('error', handleError))
+ // concatenate all source files into a single file
+ .pipe(concat('bundle.js'))
+ // output sourcemaps
+ .pipe(sourcemaps.write('maps/'))
+ // output stream, containing
+ .pipe(gulp.dest(`${BASE_PATH}/dist`));
+ });
+ */
 
-// process JS vendor files
-gulp.task('jsVendor', ['clean'], () => {
-  return gulp
-    .src([
-      `${BASE_PATH}/vendor/jquery*.js`,
-      `${BASE_PATH}/vendor/*.js`,
-    ])
-    .pipe(concat('vendor.js'))
-    .pipe(gulp.dest(`${BASE_PATH}/dist`));
-});
+/*
+ // process JS vendor files
+ gulp.task('jsVendor', ['clean'], () => {
+ return gulp
+ .src([
+ `${BASE_PATH}/vendor/jquery*.js`,
+ `${BASE_PATH}/vendor/*.js`,
+ ])
+ .pipe(concat('vendor.js'))
+ .pipe(gulp.dest(`${BASE_PATH}/dist`));
+ });
+ */
 
 // create a task that ensures the `js` task is complete
 // before reloading browsers
@@ -55,7 +57,7 @@ gulp.task('clean', () => {
 
 // use default task to compile JS files
 // then launch Browsersync and watch files
-gulp.task('default', ['jsVendor',/* 'jsSrc' */], () => {
+gulp.task('default', [/* 'jsVendor', */ /* 'jsSrc' */], () => {
 
   // Serve files from the root of our app
   browserSync.init({
